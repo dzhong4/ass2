@@ -1,5 +1,5 @@
 USE dzhong4assign2db;
-LOAD DATA INFILE '/var/lib/mysql-files/loaddatafall2018.txt' into table Product fields terminated by ',' lines terminated$
+LOAD DATA INFILE '/var/lib/mysql-files/loaddatafall2018.txt' into table Product fields terminated by ',' lines terminated by '\n';
 SELECT * FROM Product;
 INSERT INTO Product VALUES (66, "Elbow pads", 14.24, 120);
 INSERT INTO Product () VALUES (77, "Display", 90.50, 100);
