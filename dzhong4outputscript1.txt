@@ -1,0 +1,67 @@
+Warning: Using a password on the command line interface can be insecure.
+--------------
+SHOW DATABASES
+--------------
+
+Database
+information_schema
+dzhong4assign2db
+mysql
+performance_schema
+--------------
+DROP DATABASE IF EXISTS dzhong4assign2db
+--------------
+
+--------------
+CREATE DATABASE dzhong4assign2db
+--------------
+
+--------------
+GRANT USAGE ON *.* TO 'ta'@'localhost'
+--------------
+
+--------------
+DROP USER 'ta'@'localhost'
+--------------
+
+--------------
+CREATE USER 'ta'@'localhost' IDENTIFIED BY 'cs3319'
+--------------
+
+--------------
+GRANT ALL PRIVILEGES ON dzhong4assign2db.* TO 'ta'@'localhost'
+--------------
+
+--------------
+FLUSH PRIVILEGES
+--------------
+
+--------------
+SHOW TABLES
+--------------
+
+--------------
+CREATE  TABLE Product (ProductID VARCHAR(2) NOT NULL, Description VARCHAR(20), Cost FLOAT, Quantity INT, PRIMARY KEY (ProductID))
+--------------
+
+--------------
+CREATE  TABLE Agent (AgentID VARCHAR(2) NOT NULL, FirstName VARCHAR(30), LastName VARCHAR(30), WorkingCity VARCHAR(15), CommissionPercentage FLOAT, PRIMARY KEY (AgentID))
+--------------
+
+--------------
+CREATE  TABLE Customer (CustomerID VARCHAR(2) NOT NULL, FirstName VARCHAR(30), LastName VARCHAR(30), City VARCHAR(15), PhoneNumber VARCHAR(12), DealwithAgentID VARCHAR(2), PRIMARY KEY (CustomerID), foreign key (DealwithAgentID) REFERENCES Agent(AgentID))
+--------------
+
+--------------
+CREATE  TABLE Puchased (ProductID VARCHAR(2) NOT NULL, CustomerID VARCHAR(2) NOT NULL, Quantity INT, PRIMARY KEY (ProductID, CustomerID), foreign key (ProductID) REFERENCES Product(ProductID), foreign key (CustomerID) REFERENCES Customer(CustomerID))
+--------------
+
+--------------
+SHOW TABLES
+--------------
+
+Tables_in_dzhong4assign2db
+Agent
+Customer
+Product
+Puchased
